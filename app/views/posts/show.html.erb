@@ -10,3 +10,14 @@
       </span>
 </p>
 <p class="body"><%= @post.body %></p>
+
+<%= link_to like_post_path(@post), method: :put do %>
+    Upvote
+    <%= @post.get_upvotes.size %>
+<% end %>
+<br>
+<%= link_to dislike_post_path(@post), method: :put do %>
+    Downvote
+    <%= @post.get_downvotes.size %>
+<% end %>
+
