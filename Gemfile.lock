@@ -159,7 +159,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
-  devise (~> 4.2)
+  devise
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.6)

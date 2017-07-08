@@ -1,8 +1,12 @@
-
+<%= link_to "All Posts", posts_path %>
 <h1><%= @post.title %></h1>
-<p>
-  Submitted <%= time_ago_in_words(@post.created_at) %> Ago
-      | <%= link_to 'Edit', edit_post_path(@post) %> |
-      <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+<p><span>
+  Submitted <%= time_ago_in_words(@post.created_at) %> Ago</span>
+      <span>
+        <% if @post.user == current_user %>
+        | <%= link_to 'Edit', edit_post_path(@post) %> |
+        <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </span>
 </p>
 <p class="body"><%= @post.body %></p>
