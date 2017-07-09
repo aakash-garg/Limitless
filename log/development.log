@@ -3855,3 +3855,28 @@ Processing by Devise::SessionsController#new as HTML
   Rendered users/shared/_links.html.erb (0.3ms)
   Rendered users/sessions/new.html.erb within layouts/application (3.3ms)
 Completed 200 OK in 22ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-07-09 18:05:51 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 23ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-07-09 18:05:51 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.9ms)
+  Rendered users/sessions/new.html.erb within layouts/application (44.4ms)
+Completed 200 OK in 390ms (Views: 376.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2017-07-09 18:46:08 +0530
+Processing by PostsController#index as HTML
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-07-09 18:46:08 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (1.9ms)
+  Rendered users/sessions/new.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 180ms (Views: 173.6ms | ActiveRecord: 0.0ms)
