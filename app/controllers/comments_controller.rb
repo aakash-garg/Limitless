@@ -6,8 +6,9 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(params[:comment].permit(:content))
-
+    @comment = @post.comments.new(params[:comment].permit(:content))
+    @comment.user_id = current_user.id
+    @comment.save
     redirect_to post_path(@post)
   end
 
