@@ -1,24 +1,29 @@
 <%= link_to "Back", root_path %>
+
+<%= image_tag @post.image.url(:medium) %>
 <h1 class="title"><%= @post.title %></h1>
 <p class="date">
   Submitted <%= time_ago_in_words(@post.created_at) %> Ago
   <span>
     <% if @post.user == current_user %>
     | <%= link_to 'Edit', edit_post_path(@post) %> |
-    <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'} %>
+        <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'} %>
     <% end %>
   </span>
 </p>
 <p class="body"><%= @post.body %></p>
 <br>
-<%= link_to like_post_path(@post), method: :put do %>
-    Upvote
-    <%= @post.get_upvotes.size %>
-<% end %>
 
-<%= link_to dislike_post_path(@post), method: :put do %>
-    Downvote
-    <%= @post.get_downvotes.size %>
+<% if user_signed_in? %>
+    <%= link_to like_post_path(@post), method: :put do %>
+        Upvote
+        <%= @post.get_upvotes.size %>
+    <% end %>
+
+    <%= link_to dislike_post_path(@post), method: :put do %>
+        Downvote
+        <%= @post.get_downvotes.size %>
+    <% end %>
 <% end %>
 <br><br><br>
 <div id="comments">

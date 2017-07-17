@@ -1,14 +1,20 @@
-<p>Hello, <%= current_user.email %></p>
-<p>
-<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-</p>
-<p>
-<%= link_to "New Post", new_post_path %>
-</p>
-<p>
-  <%= link_to "Edit User", edit_user_registration_path %>
-</p>
+<% if user_signed_in? %>
+    <p>Hello, <%= current_user.email %></p>
+    <p>
+      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+    </p>
+    <p>
+      <%= link_to "New Post", new_post_path %>
+    </p>
+    <p>
+      <%= link_to "Edit User", edit_user_registration_path %>
+    </p>
+<% else %>
+    <p><%= link_to "Sign In", new_user_session_path %></p>
+    <p><%= link_to "Sign Up", new_user_registration_path %></p>
+<% end %>
 <% @posts.each do |post| %>
+    <%= image_tag post.image.url(:small) %>
     <div>
       <h3>
         <span>
@@ -17,23 +23,25 @@
         <span>
           <small>
             --
-          <%= post.user.email %>
+            <%= post.user.email %>
           </small>
         </span>
       </h3>
       <p>
-        <%= post.created_at.strftime("%Y-%m-%d")  %>
+        <%= post.created_at.strftime("%Y-%m-%d") %>
       </p>
     </div>
 
-    <%= link_to like_post_path(post), method: :put do %>
-        Upvote
-        <%= post.get_upvotes.size %>
-    <% end %>
+    <% if user_signed_in? %>
+        <%= link_to like_post_path(post), method: :put do %>
+            Upvote
+            <%= post.get_upvotes.size %>
+        <% end %>
 
-    <%= link_to dislike_post_path(post), method: :put do %>
-        Downvote
-        <%= post.get_downvotes.size %>
+        <%= link_to dislike_post_path(post), method: :put do %>
+            Downvote
+            <%= post.get_downvotes.size %>
+        <% end %>
     <% end %>
 
 <% end %>

@@ -13,6 +13,8 @@ capybara-*.html
 .idea/.generators
 rerun.txt
 pickle-email-*.html
+log/*
+db/development.sqlite3
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
