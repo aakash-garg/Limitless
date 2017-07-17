@@ -29,6 +29,8 @@ gem 'devise'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem "paperclip", "~> 5.0.0"
+
 # end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
