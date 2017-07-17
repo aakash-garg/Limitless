@@ -10,6 +10,7 @@ capybara-*.html
 /spec/tmp
 *.orig
 .idea/*
+.idea/.generators
 rerun.txt
 pickle-email-*.html
 

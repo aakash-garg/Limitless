@@ -6,3 +6,14 @@
 <% if User.find(comment.user_id) == current_user %>
 <p><%= link_to 'Delete', [comment.post, comment], method: :delete, class: "button", data: { confirm: 'Are you sure?' } %></p>
 <% end %>
+<% if user_signed_in? %>
+    <%= link_to like_post_comment_path(post, comment), method: :put do %>
+        Like
+        <%= comment.get_upvotes.size %>
+    <% end %>
+
+    <%= link_to dislike_post_comment_path(post, comment), method: :put do %>
+        Dislike
+        <%= comment.get_downvotes.size %>
+    <% end %>
+<% end %>
