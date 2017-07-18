@@ -1,32 +1,54 @@
-<% @posts.each do |post| %>
-    <%= image_tag post.image.url(:small) %>
-    <div>
-      <h3>
+<div class="main_body">
+  <% if user_signed_in? %>
+      <p id="intro">
+        Hello
+        <%= current_user.name.capitalize %>
+        <br>
         <span>
-          <%= link_to post.title, post %>
+          What's new today.. Share your blog
         </span>
-        <span>
-          <small>
-            --
-            <%= post.user.email %>
-          </small>
-        </span>
-      </h3>
-      <p>
-        <%= post.created_at.strftime("%Y-%m-%d") %>
       </p>
-    </div>
+  <% else %>
+      <p id="intro">
+        What's new today..
+        <br>
+        <span>
+          You need to Register or Login to post.
+        </span>
+      </p>
+  <% end %>
+  <br>
+  <br>
 
-    <% if user_signed_in? %>
-        <%= link_to like_post_path(post), method: :put do %>
-            Upvote
-            <%= post.get_upvotes.size %>
-        <% end %>
+  <div id="posts">
+    <% @posts.each do |post| %>
+        <div class="post">
+          <div class="image"><%= link_to (image_tag post.image.url(:medium)), post %></div>
+          <h2 id="title"><%= link_to post.title, post %></h2>
 
-        <%= link_to dislike_post_path(post), method: :put do %>
-            Downvote
-            <%= post.get_downvotes.size %>
-        <% end %>
+          <hr>
+
+          <div class="row1">
+            <span>
+              by: <%= post.user.name.capitalize %>
+            </span>
+            <span>
+              <i class="fa fa-comments-o"></i>
+              <%= post.comments.count %>
+
+              <i class="fa fa-heart" aria-hidden="true"></i>
+              <%= post.get_upvotes.size %>
+            </span>
+          </div>
+          <hr>
+
+          <div class="time">--
+            <%= time_ago_in_words(post.created_at) %> ago
+          </div>
+        </div>
     <% end %>
+  </div>
+</div>
 
-<% end %>
+
+

@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -18,10 +19,13 @@
     <nav>
       <ul>
         <% if user_signed_in? %>
-            <li><%= link_to current_user.name, edit_user_registration_path %></li>
             <li><%= link_to "Add New Blog", new_post_path, class: "button" %></li>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button" %></li>
-            <li><%= link_to image_tag current_user.image.url(:logo), url_for:(edit_user_registration_path) %></li>
+            <li>
+              <%= link_to edit_user_registration_path do %>
+                <%= (image_tag current_user.image.url(:logo)) %>
+              <% end %>
+            </li>
         <% else %>
             <li><%= link_to "Sign in", new_user_session_path, class: "button" %></li>
             <li><%= link_to "Sign Up", new_user_registration_path, class: "button" %></li>
@@ -31,9 +35,8 @@
 
 </header>
 
-<div class="yeild">
-  <%= yield %>
-</div>
+<div id="yield"><%= yield %></div>
+
 
 </body>
 </html>
