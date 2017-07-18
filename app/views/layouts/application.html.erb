@@ -2,16 +2,38 @@
 <html>
 <head>
   <title>LIFEWIRE</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
-<%= yield %>
+
+<header>
+    <div id="logo">
+      <%= link_to "LIFEWIRE", root_path %>
+    </div>
+    <nav>
+      <ul>
+        <% if user_signed_in? %>
+            <li><%= link_to current_user.name, edit_user_registration_path %></li>
+            <li><%= link_to "Add New Blog", new_post_path, class: "button" %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button" %></li>
+            <li><%= link_to image_tag current_user.image.url(:logo), url_for:(edit_user_registration_path) %></li>
+        <% else %>
+            <li><%= link_to "Sign in", new_user_session_path, class: "button" %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path, class: "button" %></li>
+        <% end %>
+      </ul>
+    </nav>
+
+</header>
+
+<div class="yeild">
+  <%= yield %>
+</div>
 
 </body>
 </html>

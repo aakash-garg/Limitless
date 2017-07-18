@@ -87,6 +87,7 @@ GEM
     multi_json (1.12.1)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    normalize-rails (4.1.1)
     orm_adapter (0.5.0)
     paperclip (5.0.0)
       activemodel (>= 4.2.0)
@@ -174,6 +175,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  normalize-rails
   paperclip (~> 5.0.0)
   rails (= 4.2.6)
   sass-rails (~> 5.0)
