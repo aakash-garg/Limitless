@@ -1,0 +1,8 @@
+<h1>Profile of:</h1>
+<%= @user.name %> <br>
+<%= @user.email %> <br>
+Followers:
+<%= FollowMapping.where(followee_id: @user.id).pluck(:follower_id).length %> <br>
+Followees:
+<%= FollowMapping.where(follower_id: @user.id).pluck(:followee_id).length %> <br>
+<%= link_to image_tag @user.image.url(:small) %>

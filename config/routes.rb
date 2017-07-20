@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  get '/users' => 'home#users'
+  get '/profile/:id' => 'home#profile'
+
+  post '/follow' => 'home#follow'
+  post '/unfollow' => 'home#unfollow'
+
   resources :posts do
     member do
       put "like", to: "posts#upvote"
