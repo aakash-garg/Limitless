@@ -1,15 +1,48 @@
-<h1>Users</h1>
+<div class="main_body">
 
-<% @users.each do |user| %>
+  <p id="intro">
+    Users
+    <br>
+    <span>
+          Know more about people...
+        </span>
+  </p>
+  <br>
+  <br>
 
-    <h3><%= link_to user.name, '/profile/' + user.id.to_s %></h3>
+  <div class="wrapper">
+    <% @users.each do |user| %>
+        <div class="user">
+          <div class="user-image">
+            <%= link_to '/profile/'+user.id.to_s do %>
+              <%= image_tag user.image.url(:medium) %>
+            <% end %>
+          </div>
 
-    <%= user.email %> <% if current_user.can_follow user.id %>
-        <%= link_to "Follow", url_for(controller: :home, action: :follow, followee_id: user.id), method: :post %>
+          <div class="user-details">
+            <h3><%= link_to user.name.capitalize, '/profile/' + user.id.to_s %></h3>
+            <div class="email"><%= user.email %></div>
+            <div class="link"><br><br><br>
+              <% if current_user.can_follow user.id %>
+                  <%= link_to "Follow", url_for(controller: :home, action: :follow, followee_id: user.id), method: :post, class: "button2" %>
+              <% end %>
+
+              <% if current_user.can_unfollow user.id %>
+                  <%= link_to "UnFollow", url_for(controller: :home, action: :unfollow, followee_id: user.id), method: :post, class: "button2" %>
+              <% end %>
+            </div>
+          </div>
+            <div class="follows">
+              <div class="followers">Followers:
+                <span> <%= FollowMapping.where(followee_id: user.id).pluck(:follower_id).length %></span></div>
+              <div class="followees">Following:
+                <span> <%= FollowMapping.where(follower_id: user.id).pluck(:followee_id).length %></span></div>
+            </div>
+        </div>
+        <hr id="hor">
     <% end %>
+  </div>
 
-    <% if current_user.can_unfollow user.id %>
-        <%= link_to "UnFollow", url_for(controller: :home, action: :unfollow, followee_id: user.id), method: :post %>
-    <% end %>
-  <hr>
-<% end %>
+
+
+

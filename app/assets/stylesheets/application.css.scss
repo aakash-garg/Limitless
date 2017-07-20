@@ -95,4 +95,16 @@ header{
   padding-top: 85px;
 }
 
+.button2{
+  border: 1px dotted #91abd6;
+  padding: .5rem 1rem;
+  border-radius: 0;
+  outline: none;
+  background: white;
+  color: black;
+  margin:5px;
+  text-decoration: none;
+}
+
 @import "index.css.scss";
+@import "users.css.scss";
