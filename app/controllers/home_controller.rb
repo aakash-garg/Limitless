@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
 
   def users
-    @users = User.all
+    @users = User.all.order('created_at DESC')
   end
 
   def profile
