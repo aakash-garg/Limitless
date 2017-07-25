@@ -4,10 +4,14 @@
   <h2 id="title"><%= link_to post.title, post %></h2>
 
   <hr>
+  <div id="content">
+    <span><%=h truncate(post.body, :length => 100) %> <%= link_to "Read MORE", post, {:style => 'text-decoration: none; color: green;'} %></span>
+  </div>
+  <hr>
 
   <div class="row1">
             <span>
-              by: <%= post.user.name.capitalize %>
+              -- <%= link_to post.user.name.capitalize, '/profile/' + post.user.id.to_s, {:style => 'text-decoration: none; color: brown;'} %>
             </span>
     <span>
               <i class="fa fa-comments-o"></i>
@@ -17,7 +21,7 @@
       <%= post.get_upvotes.size %>
             </span>
   </div>
-  <hr>
+  <br style="line-height: 200%;">
 
   <div class="time">--
     <%= time_ago_in_words(post.created_at) %> ago

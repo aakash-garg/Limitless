@@ -1,0 +1,30 @@
+<% @users.each do |user| %>
+    <div class="user">
+      <div class="user-image">
+        <%= link_to '/profile/'+user.id.to_s do %>
+            <%= image_tag user.image.url(:medium) %>
+        <% end %>
+      </div>
+
+      <div class="user-details">
+        <h3><%= link_to user.name.capitalize, '/profile/' + user.id.to_s %></h3>
+        <div class="email"><%= user.email %></div>
+        <div class="link"><br><br><br>
+          <% if current_user.can_follow user.id %>
+              <%= link_to "Follow", url_for(controller: :home, action: :follow, followee_id: user.id), method: :post, class: "button2" %>
+          <% end %>
+
+          <% if current_user.can_unfollow user.id %>
+              <%= link_to "UnFollow", url_for(controller: :home, action: :unfollow, followee_id: user.id), method: :post, class: "button2" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="follows">
+        <div class="followers">Followers:
+          <span> <%= FollowMapping.where(followee_id: user.id).pluck(:follower_id).length %></span></div>
+        <div class="followees">Following:
+          <span> <%= FollowMapping.where(follower_id: user.id).pluck(:followee_id).length %></span></div>
+      </div>
+    </div>
+    <hr id="hor">
+<% end %>

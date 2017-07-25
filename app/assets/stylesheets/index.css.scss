@@ -16,7 +16,7 @@
 }
 #posts{
   padding: 20px;
-  width: 70%;
+  width: 100%;
   box-sizing: border-box;
   border: 1px solid white;
   box-shadow:1px 1px 1px 6px rgba(220, 220, 220, .3);
@@ -25,9 +25,9 @@
   justify-content: space-around;
   .post{
     border: 1px solid lightgrey;
-    width: 40%;
+    width: 28%;
     padding:15px;
-    margin:30px;
+    margin:20px;
     hr{
       display: block;
       height: 1px;
