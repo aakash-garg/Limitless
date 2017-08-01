@@ -17,13 +17,20 @@
 
     <div class="field">
       <%= f.label :title %><br>
-      <%= f.text_field :title %>
+      <%= f.text_area :title %>
     </div>
     <div class="field">
       <%= f.label :body %><br>
-      <%= f.text_field :body %>
+      <%= f.text_area :body, id:"trumbowyg", rows: 30 %>
     </div>
     <div class="actions">
       <%= f.submit %>
     </div>
 <% end %>
+
+<script>
+    $('#trumbowyg').trumbowyg({
+        svgPath: '<%= image_path("icons.svg")%>'
+    });
+
+</script>
