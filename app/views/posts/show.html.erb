@@ -1,30 +1,31 @@
-<%= link_to "Back", root_path %>
-
-<%= image_tag @post.image.url(:medium) %>
-<h1 class="title"><%= @post.title %></h1>
-<p class="date">
-  Submitted <%= time_ago_in_words(@post.created_at) %> Ago
-  <span>
+<div class="content-box">
+  <h1 class="title"><%= @post.title %></h1>
+  <p class="date">
+    Submitted <%= time_ago_in_words(@post.created_at) %> Ago
+    <span>
     <% if @post.user == current_user %>
     | <%= link_to 'Edit', edit_post_path(@post) %> |
-        <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'} %>
+          <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'} %>
     <% end %>
   </span>
-</p>
-<p class="body"><%= simple_format @post.body %></p>
-<br>
+  </p>
+  <p class="body"><%= simple_format(@post.body, {}, :sanitize => false)
+  %></p>
+  <br>
 
-<% if user_signed_in? %>
-    <%= link_to like_post_path(@post), method: :put do %>
-        Upvote
-        <%= @post.get_upvotes.size %>
-    <% end %>
+  <% if user_signed_in? %>
+      <%= link_to like_post_path(@post), method: :put do %>
+          Upvote
+          <%= @post.get_upvotes.size %>
+      <% end %>
 
-    <%= link_to dislike_post_path(@post), method: :put do %>
-        Downvote
-        <%= @post.get_downvotes.size %>
-    <% end %>
-<% end %>
+      <%= link_to dislike_post_path(@post), method: :put do %>
+          Downvote
+          <%= @post.get_downvotes.size %>
+      <% end %>
+  <% end %>
+</div>
+
 <br><br><br>
 <div id="comments">
   <h2><%= @post.comments.count %> Comments</h2>

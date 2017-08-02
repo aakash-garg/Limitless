@@ -1,0 +1,16 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.content-box{
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+  padding:30px;
+  box-shadow: hsla(0, 0, 0, .2) 0 4px 2px -2px;
+  //font-family: "adelle-sans", sans-serif;
+  font-weight: 100;
+  margin-top: 48px;
+  margin-right: 17%;
+  margin-left: 17%;
+}
