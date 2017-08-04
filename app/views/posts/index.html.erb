@@ -2,10 +2,10 @@
   <% if user_signed_in? %>
       <p id="intro">
         Hello
-        <%= current_user.name.capitalize %>
+        <%= current_user.name.titleize %>
         <br>
         <span>
-          What's new today.. Share your blog
+          What's new today.. Share your story
         </span>
       </p>
   <% else %>

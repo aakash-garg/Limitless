@@ -1,7 +1,37 @@
 <div class="content-box">
-  <h1 class="title"><%= @post.title %></h1>
-  <p class="date">
-    Submitted <%= time_ago_in_words(@post.created_at) %> Ago
+  <div class="user-content">
+    <div class="usr-img">
+      <%= link_to (image_tag @post.user.image.url(:small)) %>
+    </div>
+    <div class="other-details">
+      <span class="user-name">
+        <%= @post.user.name.upcase %>
+      </span>
+      <span class="follow-link">
+      <% if user_signed_in? %>
+          <% if current_user.can_follow @post.user.id %>
+            <%= link_to "FOLLOW", url_for(controller: :home, action: :follow, followee_id: @post.user.id), method: :post, class: "button-follow" %>
+          <% end %>
+
+            <% if current_user.can_unfollow @post.user.id %>
+            <%= link_to "UNFOLLOW", url_for(controller: :home, action: :unfollow, followee_id: @post.user.id), method: :post, class: "button-follow" %>
+          <% end %>
+      <% end %>
+    </span>
+      <br>
+      <br>
+      <div class="cr-time">
+        <%= @post.created_at.strftime("%d %B %Y") %>
+      </div>
+    </div>
+    <br>
+  </div>
+  <br>
+  <hr class="hr-asdf">
+  <br>
+  <h1 class="title"><%= @post.title.capitalize %></h1>
+  <br><br>
+  <p>
     <span>
     <% if @post.user == current_user %>
     | <%= link_to 'Edit', edit_post_path(@post) %> |

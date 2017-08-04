@@ -13,4 +13,68 @@
   margin-top: 48px;
   margin-right: 17%;
   margin-left: 17%;
+  .user-content{
+    display: flex;
+    .usr-img{
+      margin-right: 20px;
+      img {
+        border-radius: 50px;
+        border: 0.2px solid lightgrey;
+        padding: 3px;
+        height: 90px;
+        width: 90px;
+      }
+    }
+    .other-details{
+      .user-name{
+        color: black;
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .follow-link{
+        .button-follow{
+          text-decoration: none;
+          border: 0.5px solid green;
+          padding: 5px;
+          margin: 5px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-family: 'Saira Condensed', sans-serif;
+          letter-spacing: 2px;
+          font-weight: bold;
+          color: green;
+        }
+      }
+      .cr-time {
+        font-family: 'Raleway', sans-serif;
+        color: darkgray;
+      }
+    }
+
+  }
+
+  hr.hr-asdf {
+    height: 30px;
+    border-style: solid;
+    border-color: #8c8b8b;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+    &:before{
+      display: block;
+      content: "";
+      height: 30px;
+      margin-top: -31px;
+      border-style: solid;
+      border-color: #8c8b8b;
+      border-width: 0 0 1px 0;
+      border-radius: 20px;
+    }
+  }
+
+  .title{
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    font-size: 45px;
+  }
+
 }

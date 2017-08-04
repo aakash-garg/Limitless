@@ -1,8 +1,26 @@
-<h1>Profile of:</h1>
-<%= @user.name %> <br>
-<%= @user.email %> <br>
-Followers:
-<%= FollowMapping.where(followee_id: @user.id).pluck(:follower_id).length %> <br>
-Followees:
-<%= FollowMapping.where(follower_id: @user.id).pluck(:followee_id).length %> <br>
-<%= link_to image_tag @user.image.url(:small) %>
+<div class="profile-page">
+
+  <div class="user-name">
+    <%= @user.name.titleize %> <br>
+  </div>
+  <br>
+  <div class="user-email">
+  <%= @user.email %> <br>
+  </div>
+  <div class="user-image">
+    <%= link_to image_tag @user.image.url(:small) %>
+  </div>
+  <div class="follows">
+    Followers:
+    <span class="follows-num">
+      <%= FollowMapping.where(followee_id: @user.id).pluck(:follower_id).length %> <br>
+    </span>
+  </div>
+
+  <div class="follows">
+    Followees:
+    <span class="follows-num">
+      <%= FollowMapping.where(follower_id: @user.id).pluck(:followee_id).length %> <br>
+    </span>
+  </div>
+</div>

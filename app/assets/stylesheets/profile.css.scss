@@ -1,0 +1,46 @@
+.profile-page{
+  transition: 0.3s box-shadow ease;
+  border-radius: 5px;
+  max-width: 100%;
+  position: relative;
+  list-style: none;
+  background-color: #f7f7f7;
+  margin: 20%;
+  margin-top: 50px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 5px 5px rgba(0, 0, 0, 0.19);
+  }
+
+  .user-name{
+    font-family: Avenir;
+    text-align: center;
+    color: chocolate;
+    font-size: 40px;
+  }
+  .user-email{
+    color: #91abd6;
+    text-align: center;
+  }
+  .user-image{
+    height: 200px;
+    width: 200px ;
+    overflow: hidden;
+    border: 1px solid gray;
+    padding: 3px;
+    background: white;
+    margin: auto;
+    margin-bottom:12px;
+    img{
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .follows{
+    font-family: Optima;
+    font-size: 20px;
+    .follows-num{
+
+    }
+  }
+}
