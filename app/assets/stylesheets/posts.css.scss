@@ -50,6 +50,18 @@
         color: darkgray;
       }
     }
+    p#edit-del{
+      margin-right: 10%;
+      margin-left: auto;
+      span{
+        a{
+          color: darkorange;
+          text-decoration: none;
+          font-family: "Helvetica Neue";
+          font-weight: bold;
+        }
+      }
+    }
 
   }
 
