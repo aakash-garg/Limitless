@@ -89,4 +89,15 @@
     font-size: 45px;
   }
 
+  .vote-count{
+    a{
+      text-decoration: none;
+      margin: 20px;
+      color: rosybrown;
+      text-shadow: 1px 1px 1px #ccc;
+      font-size: 1.5em;
+      padding: 8px;
+      border: 1px solid rosybrown;
+    }
+  }
 }

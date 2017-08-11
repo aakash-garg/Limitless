@@ -1,0 +1,4 @@
+$('.dislike').bind('ajax:success', function() {
+    $('.like_count-<%= @post.id %>').text(<%= @post.get_upvotes.size%>);
+    $('.dislike_count-<%= @post.id %>').text(<%= @post.get_downvotes.size%>);
+});

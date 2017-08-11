@@ -1,7 +1,7 @@
 $('#posts').append('<%= escape_javascript(render partial: 'posts') %>');
 <% if @posts.next_page %>
-  $('.pagination').replaceWith('<%= escape_javascript(will_paginate(@posts)) %>');
+  $('.posts-scroll').replaceWith('<%= escape_javascript(will_paginate(@posts)) %>');
 <% else %>
-  $('.pagination').remove();
+  $('.posts-scroll').remove();
 <% end %>
-<% sleep(1) %>
+<% sleep(0.8) %>

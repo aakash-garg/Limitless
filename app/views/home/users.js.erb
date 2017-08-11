@@ -1,7 +1,7 @@
 $('#wrapper').append('<%= escape_javascript(render partial: 'users') %>');
 <% if @users.next_page %>
-$('.pagination').replaceWith('<%= escape_javascript(will_paginate(@users)) %>');
+$('.users-scroll').replaceWith('<%= escape_javascript(will_paginate(@users)) %>');
 <% else %>
-$('.pagination').remove();
+$('.users-scroll').remove();
 <% end %>
-<% sleep(1) %>
+<% sleep(0.5) %>

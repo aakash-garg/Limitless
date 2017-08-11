@@ -55,3 +55,55 @@
     border-top: 1px solid #ccc;
   }
 }
+
+
+
+
+.users-scroll {
+  font-size: 18px;
+  //float: right;
+  margin: 0;
+  padding: 3px 0 4px;
+}
+.users-scroll a,
+.users-scroll span {
+  padding: 3px 3px 2px;
+}
+.users-scroll .disabled {
+  background:none repeat scroll 0 0 transparent;
+  border:medium none;
+  color:#999999;
+  cursor:default;
+}
+.users-scroll a {
+  color:#3B5998;
+  cursor:pointer;
+  text-decoration:none;
+}
+.users-scroll a:hover {
+  background-color:#3B5998;
+  border-bottom:1px solid #3B5998;
+  border-color:#D8DFEA #D8DFEA #3B5998;
+  color:#FFFFFF;
+  text-decoration:none;
+}
+.users-scroll .current {}
+.users-scroll .current {
+  border-bottom:2px solid #3B5998;
+  border-color:#3B5998;
+  color:#3B5998;
+  font-weight:bold;
+  padding-left:2px;
+  padding-right:2px;
+}
+.users-scroll .current a:hover {
+  background-color:#3B5998;
+  color:#FFFFFF;
+}
+
+.users-scroll .prev_page {
+
+}
+.users-scroll .next_page {
+
+}

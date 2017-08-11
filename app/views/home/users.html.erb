@@ -10,10 +10,11 @@
   <br>
   <br>
 
+  <%= will_paginate @users, class: "users-scroll" %>
   <div class="wrapper">
     <%= render partial: 'users' %>
   </div>
-  <%= will_paginate(@users) %>
+  <%= will_paginate @users, class: "users-scroll" %>
 
 
 
