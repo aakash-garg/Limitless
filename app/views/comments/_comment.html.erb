@@ -1,21 +1,33 @@
-<br><br>
-<p><strong>by - <%= User.find(comment.user_id).email %></strong></p>
-<p><%= comment.content %></p>
-<p><%= time_ago_in_words(comment.created_at) %> Ago</p>
 
-<% if user_signed_in? %>
-    <% if User.find(comment.user_id) == current_user %>
-        <p><%= link_to 'Delete', [comment.post, comment], method: :delete, data: {confirm: 'Are you sure?'} %></p>
-    <% end %>
-<% end %>
-<% if user_signed_in? %>
-    <%= link_to like_post_comment_path(post, comment), method: :put do %>
-        Like
-        <%= comment.get_upvotes.size %>
-    <% end %>
+</div>
 
-    <%= link_to dislike_post_comment_path(post, comment), method: :put do %>
-        Dislike
-        <%= comment.get_downvotes.size %>
-    <% end %>
-<% end %>
+<div class="bubble-list">
+  <div class="bubble clearfix">
+    <%= link_to (image_tag comment.user.image.url(:small)), '/profile/' + comment.user.id.to_s %>
+    <div class="bubble-content">
+      <div class="point"></div>
+      <p><%= comment.content %></p>
+      <br>
+      <% if user_signed_in? %>
+          <% if User.find(comment.user_id) == current_user %>
+              <p><%= link_to 'Delete', [comment.post, comment], method: :delete, data: {confirm: 'Are you sure?'} %></p>
+          <% end %>
+      <% end %>
+      <% if user_signed_in? %>
+          <%= link_to like_post_comment_path(post, comment), method: :put do %>
+              Like
+              <%= comment.get_upvotes.size %>
+          <% end %>
+
+          <%= link_to dislike_post_comment_path(post, comment), method: :put do %>
+              Dislike
+              <%= comment.get_downvotes.size %>
+          <% end %>
+      <% end %>
+      <br>
+      <p><%= time_ago_in_words(comment.created_at) %> Ago</p>
+      <br>
+      <small style="float: right"><%= User.find(comment.user_id).email %></small>
+    </div>
+  </div>
+</div>

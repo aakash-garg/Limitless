@@ -1,0 +1,10 @@
+
+<% if user_signed_in? %>
+    <% if current_user.can_follow post.user.id %>
+        <%= link_to "FOLLOW", url_for(controller: :home, action: :follow, followee_id: post.user.id, post: post), method: :post, remote: true, class: "button-follow follow-ajax" %>
+    <% end %>
+
+    <% if current_user.can_unfollow post.user.id %>
+        <%= link_to "UNFOLLOW", url_for(controller: :home, action: :unfollow, followee_id: post.user.id, post: post), method: :post, remote: true, class: "button-follow unfollow-ajax" %>
+    <% end %>
+<% end %>

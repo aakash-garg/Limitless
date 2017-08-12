@@ -10,19 +10,27 @@ class HomeController < ApplicationController
   end
 
   def follow
-    followee_id = params[:followee_id]
-    if current_user.can_follow followee_id
-    FollowMapping.create(:followee_id => followee_id, :follower_id => current_user.id)
+    @followee_id = params[:followee_id]
+    @post=Post.find(params[:post].to_i)
+    if current_user.can_follow @followee_id
+    FollowMapping.create(:followee_id => @followee_id, :follower_id => current_user.id)
     end
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   def unfollow
-    followee_id = params[:followee_id]
-    if current_user.can_unfollow followee_id
-      FollowMapping.where(:followee_id => followee_id, :follower_id => current_user.id).first.destroy
+    @followee_id = params[:followee_id]
+    @post=Post.find(params[:post].to_i)
+    if current_user.can_unfollow @followee_id
+      FollowMapping.where(:followee_id => @followee_id, :follower_id => current_user.id).first.destroy
     end
-    redirect_to :back
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
 end
