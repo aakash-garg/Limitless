@@ -7,7 +7,7 @@
       <span class="user-name">
         <%= @post.user.name.upcase %>
       </span><span class="follow-link">
-      <%= render 'home/follow', post: @post %>
+      <%= render 'home/follow', user: @post.user %>
     </span>
       <br>
       <br>

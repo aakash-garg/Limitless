@@ -1,0 +1,4 @@
+$('.followLink-<%= @user.id %>').html('<%= escape_javascript(render 'home/follow_2', user: @user) %>');
+$('.follow-num-f<%= @user.id %>').text('<%= FollowMapping.where(followee_id: @user.id).pluck(:follower_id).length %>');
+
+$('.follow-num-uf<%= current_user.id %>').text('<%= FollowMapping.where(follower_id: current_user.id).pluck(:followee_id).length %>');
