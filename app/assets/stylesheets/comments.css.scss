@@ -24,11 +24,29 @@
   position:relative;
   float:left;
   margin-left:12px;
-  width:400px;
-  padding:0px 20px;
+  width:800px;
+  padding:15px 20px;
   border-radius:10px;
-  background-color: lightgrey;
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   box-shadow:1px 1px 5px rgba(0,0,0,.2);
+
+  #comment-font{
+    font-family: "adelle-sans", sans-serif;
+  }
+  a{
+    text-decoration: none;
+    float: right;
+    i{
+      color: lightcoral;
+      margin-left: 20px;
+    }
+    span{
+      color: lightcoral;
+    }
+  }
+
 }
 
 .bubble {
@@ -37,8 +55,25 @@
 .point {
   border-top:10px solid transparent;
   border-bottom:10px solid transparent;
-  border-right: 12px solid lightgrey;
-  position:absolute;
+  border-right: 12px solid #ECE9E6;
+
+  position: absolute;
   left:-10px;
   top:12px;
+}
+
+.add-comment{
+  font-family: Palatino;
+}
+.text-area{
+  width: 80%;
+  padding: 20px;
+  font-size: 16px;
+  font-family: "adelle-sans", sans-serif;
+}
+.sb{
+  width: 60px;
+  height: 60px;
+  font-family: Palatino;
+  color: wheat;
 }

@@ -9,7 +9,11 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(params[:comment].permit(:content))
     @comment.user_id = current_user.id
     @comment.save
-    redirect_to post_path(@post)
+    # redirect_to post_path(@post)
+    respond_to do |format|
+      format.html {redirect_to @post}
+      format.js
+    end
   end
 
   # PATCH/PUT /comments/1
@@ -39,13 +43,21 @@ class CommentsController < ApplicationController
   def upvote
     @comment = Comment.find(params[:id])
     @comment.upvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.html {redirect_to :back }
+      format.json { render json: { count: @post.liked_count } }
+      format.js   { render :layout => false }
+    end
   end
 
   def downvote
     @comment = Comment.find(params[:id])
     @comment.downvote_by current_user
-    redirect_to :back
+    respond_to do |format|
+      format.html {redirect_to :back }
+      format.json { render json: { count: @post.liked_count } }
+      format.js   { render :layout => false }
+    end
   end
 
   private

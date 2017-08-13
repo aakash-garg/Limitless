@@ -1,10 +1,10 @@
+<br>
 <% if user_signed_in? %>
-<h2>Add a comment:</h2>
-<%= form_for([@post, @post.comments.build]) do |f| %>
+<h2 class="add-comment">Add a comment..</h2>
+<%= form_for([@post, @post.comments.build], remote: true) do |f| %>
 
-    <%= f.label :content %><br/>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, rows: 5, class:"text-area" %>
 
-    <%= f.submit %>
+    <%= f.button class:"button2" %>
 <% end %>
 <% end %>

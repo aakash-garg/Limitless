@@ -4,6 +4,10 @@
 
 .content-box{
   background: #fff;
+  background: #abbaab;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #ffffff, #eaeaea);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #ffffff, #eaeaea); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   border-radius: 5px;
   border: 1px solid lightgrey;
   padding:30px;
@@ -100,5 +104,15 @@
       border-radius: 15px;
       border: 1px dotted royalblue;
     }
+  }
+}
+
+#comments{
+  margin: 0 10% 0 10%;
+  padding: 20px;
+  #comments-info{
+    margin: 0 5% 0 5%;
+    //border: 1px dashed saddlebrown;
+    padding: 20px;
   }
 }

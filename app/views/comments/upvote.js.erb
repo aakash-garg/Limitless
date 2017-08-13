@@ -1,0 +1,6 @@
+$('.like-comment').bind('ajax:success', function() {
+
+    $('.like-comment-count-<%= @comment.id %>').text(<%= @comment.get_upvotes.size%>);
+    $('.dislike-comment-count-<%= @comment.id %>').text(<%= @comment.get_downvotes.size%>);
+
+});

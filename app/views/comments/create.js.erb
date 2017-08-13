@@ -1,0 +1,6 @@
+$('#comments').bind('ajax:success', function () {
+    console.log();
+    $('.comment_count').text('<%= @post.comments.size %> Comments');
+    console.log();
+    $('.comment-content').html('<%=escape_javascript render 'comments/comment', :post => @post, :comment => @comment %>');
+})

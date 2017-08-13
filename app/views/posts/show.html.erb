@@ -6,8 +6,7 @@
     <div class="other-details">
       <span class="user-name">
         <%= @post.user.name.upcase %>
-      </span>
-      <span class="follow-link">
+      </span><span class="follow-link">
       <%= render 'home/follow', post: @post %>
     </span>
       <br>
@@ -54,8 +53,13 @@
 
 <br><br><br>
 <div id="comments">
-  <h2><%= @post.comments.count %> Comments</h2>
+  <h2 style="font-family: Palatino; color: lightslategray;" class="comment_count"><%= @post.comments.count %> Comments</h2>
   <br>
-  <%= render @post.comments, post: @post %>
-  <%= render "comments/form" %>
+  <hr>
+  <div id="comments-info">
+    <div id="comment-content">
+      <%= render @post.comments, post: @post %>
+    </div>
+    <%= render "comments/form" %>
+  </div>
 </div>
