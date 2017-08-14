@@ -14,7 +14,7 @@ class HomeController < ApplicationController
     if current_user.can_follow @followee_id
       FollowMapping.create(:followee_id => @followee_id, :follower_id => current_user.id)
     end
-    # byebug
+    #byebug
     if params[:post]
       @post = Post.find(params[:post].to_i)
       @user = @post.user
