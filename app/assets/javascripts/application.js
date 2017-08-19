@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require gritter
 //= require trumbowyg/trumbowyg
 //= require turbolinks
 //= require_self

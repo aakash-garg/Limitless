@@ -37,6 +37,8 @@ gem 'will_paginate', '~> 3.1.0'
 
 gem 'trumbowyg_rails'
 
+gem "gritter", "1.2.0"
+
 # end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
