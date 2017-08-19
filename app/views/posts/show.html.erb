@@ -53,7 +53,7 @@
 
 <br><br><br>
 <div id="comments">
-  <h2 style="font-family: Palatino; color: lightslategray;" class="comment_count"><%= @post.comments.count %> Comments</h2>
+  <h2 style="font-family: Palatino; color: lightslategray;" class="comment_count"><%= pluralize(@post.comments.count, 'Comment') %></h2>
   <br>
   <hr>
   <div id="comments-info">

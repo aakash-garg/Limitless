@@ -1,0 +1,2 @@
+$('#comment-content').html("<%=escape_javascript render @post.comments, post: @comment.post %>");
+$('.comment_count').html('<%= escape_javascript(pluralize(@post.comments.count, 'Comment')) %>');
