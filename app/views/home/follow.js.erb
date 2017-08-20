@@ -1,2 +1,3 @@
 <%# byebug %>
 $('.follow-link').html('<%= escape_javascript(render 'home/follow', user: @user) %>');
+<%= add_gritter("You followed #{@user.name.upcase}", title: "Notification", sticky: false, time: 1800, image: :progress) %>

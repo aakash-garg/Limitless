@@ -2,5 +2,5 @@ $('.like').bind('ajax:success', function() {
 
     $('.like_count-<%= @post.id %>').text(<%= @post.get_upvotes.size%>);
     $('.dislike_count-<%= @post.id %>').text(<%= @post.get_downvotes.size%>);
-
+    <%= add_gritter("_", title: "Post Liked", sticky: false, time: 1800, image: :success) %>
 });
