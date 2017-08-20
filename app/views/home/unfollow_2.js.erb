@@ -3,3 +3,4 @@ $('.follow-num-f<%= @user.id %>').text('<%= FollowMapping.where(followee_id: @us
 
 $('.follow-num-uf<%= current_user.id %>').text('<%= FollowMapping.where(follower_id: current_user.id).pluck(:followee_id).length %>');
 
+<%= add_gritter("You unfollowed #{@user.name.upcase}", title: "Notification", sticky: false, time: 1800, image: :progress) %>

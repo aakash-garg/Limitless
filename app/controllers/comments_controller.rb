@@ -15,7 +15,9 @@ class CommentsController < ApplicationController
         redirect_to @post
         flash[:success] = 'Comment posted.'
       }
-      format.js
+      format.js{
+        flash[:success] = 'Comment posted.'
+      }
     end
   end
 
@@ -31,7 +33,9 @@ class CommentsController < ApplicationController
         redirect_to post_path(@post)
         flash[:success] = 'Comment deleted.'
       }
-      format.js
+      format.js{
+        flash[:success] = 'Comment deleted.'
+      }
     end
   end
 
