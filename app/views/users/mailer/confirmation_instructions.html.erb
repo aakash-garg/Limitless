@@ -1,5 +1,19 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<div id="email-wrapper">
+  <div id="header">
+    <table>
+      <tbody>
+      <tr>
+        <td width="40px"><%= email_image_tag "mail.jpg", :class => "logo" %></td>
+        <td>
+          <h3>Welcome <%= @email %>!</h3>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="body">
+    Hi <%= @user.name.capitalize %>, Nice to see you on LIMITLESS. Get ready to be inspired.
+    You can confirm your account with this link:
+    <%= link_to 'Confirm your account', confirmation_url(@resource, confirmation_token: @token) %>
+  </div>
+</div>
