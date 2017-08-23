@@ -44,6 +44,8 @@ gem "figaro"
 gem 'nokogiri'
 gem 'premailer-rails'
 
+gem 'resque'
+
 # end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -4,6 +4,7 @@ class FollowMapping < ActiveRecord::Base
   after_create :send_follow_mail
 
   def send_follow_mail
-    FollowMailer.send_follow_mail(id).deliver_now
+    # FollowMailer.send_follow_mail(id).deliver_now
+    Resque.enqueue(FollowMail, id)
   end
 end
