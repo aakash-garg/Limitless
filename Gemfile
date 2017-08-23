@@ -44,7 +44,7 @@ gem "figaro"
 gem 'nokogiri'
 gem 'premailer-rails'
 
-gem 'resque'
+gem 'resque', :require => 'resque/server'
 
 # end
 # Use ActiveModel has_secure_password
