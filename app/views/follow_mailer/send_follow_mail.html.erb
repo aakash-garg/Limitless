@@ -1,0 +1,24 @@
+<div id="email-wrapper">
+  <div id="header">
+    <table>
+      <tbody>
+      <tr>
+        <td width="40px"><%= email_image_tag "mail.jpg", :class => "logo" %></td>
+        <td>
+          <h3>New Follower on LIMITLESS</h3>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="body">
+    Hi  <span>
+         <strong><%= @followee.name.titleize %></strong>
+        </span>, You are followed by:<br>
+    <span>
+      <strong><%= @follower.name.titleize %></strong>
+      <i><%= @follower.email %></i>
+    </span>
+
+  </div>
+</div>
