@@ -11,7 +11,10 @@
 
   <div class="row1">
             <span>
-              -- <%= link_to post.user.name.capitalize, '/profile/' + post.user.id.to_s, {:style => 'text-decoration: none; color: brown;'}%>
+              <div id="user_image_posts_index">
+      <%= link_to (image_tag post.user.image.url(:small)), '/profile/' + post.user.id.to_s %>
+    </div>
+              <%= link_to post.user.name.capitalize, '/profile/' + post.user.id.to_s, {:style => 'text-decoration: none; color: brown; padding:10px;'}%>
             </span>
     <span>
               <i class="fa fa-comments-o"></i>

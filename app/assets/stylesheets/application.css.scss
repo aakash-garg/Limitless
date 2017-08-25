@@ -112,7 +112,14 @@ header{
   text-decoration: none;
 }
 
-
+#user_image_posts_index{
+  img{
+    width:50px;
+    border-radius: 30px;
+    padding: 2px;
+    border: 1px solid gray;
+  }
+}
 
 @import "index.css.scss";
 @import "users.css.scss";
