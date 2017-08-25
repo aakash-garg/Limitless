@@ -1,0 +1,58 @@
+
+#body-devise{
+  padding:5%;
+  background: #c3ffbf;
+  max-width:30em;
+  border: 1px solid lightgrey;
+  margin: 6% auto;
+  box-shadow:1em 1em 0 0 rgba(0,0,0,.2);
+  font-family:Raleway, sans-serif;
+  $accent: salmon;
+  $messagecolor:blanchedalmond;
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  input{
+    display:block;
+    width:100%;
+    padding:.2em;
+    margin: .2em 0 .6em;
+    font-size:1.2em;
+  }
+  input[type=submit]{
+    background: $accent;
+    border:none;
+    margin:1em 0;
+    color:white;
+    padding:1em;
+  }
+  .message{
+    background: $messagecolor;
+    padding: 1em .5em;
+    margin: 1em 0;
+  }
+
+  .links-devise{
+    a{
+      text-decoration: none;
+      list-style: none;
+      color: dodgerblue;
+    }
+  }
+  .field-checkbox{
+    display: flex;
+    flex-flow: row-reverse;
+    input[type="checkbox"]{
+
+    }
+    label{
+      flex-shrink: 0;
+    }
+  }
+
+  .span-d{
+    display: flex;
+    flex-flow: row-reverse;
+  }
+}
